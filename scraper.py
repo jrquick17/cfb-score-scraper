@@ -205,15 +205,15 @@ for week in weeks:
 
 # Write scores dataframe to file
 
-# outpath = os.path.join(os.getcwd(), 'all_weeks.csv')
-# final.to_csv(outpath, index = False, header = True)
+outpath = os.path.join(os.getcwd(), 'all_weeks.csv')
+final.to_csv(outpath, index = False, header = True)
 
 ############################################################################################################################################
 
 # Read back in the scores
 
-# outpath = os.path.join(os.getcwd(), 'all_weeks.csv')
-# final = pd.read_csv(outpath)
+outpath = os.path.join(os.getcwd(), 'all_weeks.csv')
+final = pd.read_csv(outpath)
 
 ############################################################################################################################################
 
@@ -278,7 +278,7 @@ rankings.columns = ['Rank']
 # print(rankings_minus_fcs)
 # print(rankings)
 
-rankings = rankings.sort(columns = 'Rank', ascending = False)
+# rankings = rankings.sort(columns = 'Rank', ascending = False)
 print(rankings)
 
 outpath3 = os.path.join(os.getcwd(), 'rankings.csv')
