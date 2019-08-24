@@ -38,7 +38,7 @@ def compile_rankings(final):
     # rankings = rankings.sort(columns = 'Rank', ascending = False)
     print(rankings)
 
-    outpath3 = os.path.join(os.getcwd(), 'rankings.csv')
+    outpath3 = os.path.join(os.getcwd(), 'csv/rankings.csv')
     rankings.to_csv(outpath3, index = True, header = True)
 
 def compile_totals(team_list, full_frame):
@@ -72,7 +72,7 @@ def get_listed_teams(final):
     return listed_teams
 
 def load_teams():
-    inpath = os.path.join(os.getcwd(), 'teams.csv')
+    inpath = os.path.join(os.getcwd(), 'csv/teams.csv')
 
     fbs = []
     with open(inpath, 'r') as f:
@@ -172,7 +172,7 @@ def scrape(start_week, end_week, start_year):
 
     # Write scores dataframe to file
 
-    csv_name = 'cfb-' + start_year + '-' + start_week + '-' + end_week + '.csv'
+    csv_name = 'csv/cfb-' + start_year + '-' + start_week + '-' + end_week + '.csv'
 
     outpath = os.path.join(os.getcwd(), csv_name)
     final.to_csv(outpath, index = False, header = True)
@@ -284,7 +284,7 @@ def compile_team_list(final):
     teams = list(set(teams))
     # print(teams)
 
-    outpath2 = os.path.join(os.getcwd(), 'teams.csv')
+    outpath2 = os.path.join(os.getcwd(), 'csv/teams.csv')
 
     team_list = pd.DataFrame(teams)
     team_list.to_csv(outpath2, index = False, header = False)
