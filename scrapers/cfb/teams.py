@@ -267,9 +267,9 @@ def team_map(name):
         lower = 'washington state'
     elif lower in ['w. michigan', 'wmu']:
         lower = 'western michigan'
-    elif lower not in fbs:
+    # elif lower not in fbs:
         # function to return all fcs teams (to ensure that they're in fact fcs)
-        lower = "fcs_team"
+        # lower = "fcs_team"
 
     return lower
 
