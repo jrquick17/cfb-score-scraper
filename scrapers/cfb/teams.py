@@ -86,12 +86,12 @@ def scrape(start_week, end_week, start_year):
 
     urls = []
 
-    for year in range(start_year):
-        for week in range(start_week, end_week):
+    for year in range(start_year, start_year + 1):
+        for week in range(start_week, end_week + 1):
             urls.append('http://www.cbssports.com/college-football/scoreboard/FBS/' + str(year) + '/regular/' + str(week))
+            # TODO -- urls.append('http://www.cbssports.com/college-football/scoreboard/FCS/' + str(year) + '/regular/' + str(week))
 
     # Scrape and compile scores
-
     weeks = []
 
     for url in urls:
@@ -135,7 +135,9 @@ def scrape(start_week, end_week, start_year):
                     team = arr[0]
                     rank = "Unranked"
                     record = "0-0"
-                wins = record.split('-')[0]; losses = record.split('-')[1]
+
+                wins = record.split('-')[0];
+                losses = record.split('-')[1]
 
                 final_margin = game.ix[num,5] - game.ix[(num+1)%2,5]
                 team = team_map(team)
@@ -172,7 +174,7 @@ def scrape(start_week, end_week, start_year):
 
     # Write scores dataframe to file
 
-    csv_name = 'csv/cfb-' + start_year + '-' + start_week + '-' + end_week + '.csv'
+    csv_name = 'csv/cfb-' + str(start_year) + '-' + str(start_week) + '-' + str(end_week) + '.csv'
 
     outpath = os.path.join(os.getcwd(), csv_name)
     final.to_csv(outpath, index = False, header = True)
@@ -267,9 +269,9 @@ def team_map(name):
         lower = 'washington state'
     elif lower in ['w. michigan', 'wmu']:
         lower = 'western michigan'
-    # elif lower not in fbs:
+    elif lower not in fbs:
         # function to return all fcs teams (to ensure that they're in fact fcs)
-        # lower = "fcs_team"
+        lower = "fcs_team"
 
     return lower
 
