@@ -10,3 +10,6 @@ A simple python-based college football score scraper, complete with simple SRS r
 `pip3 install html5lib`
 `pip3 install lxml`
 `pip3 install bs4`
+
+`brew tap mongodb/brew`
+`mongod`
